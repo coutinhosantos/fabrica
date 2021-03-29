@@ -33,8 +33,6 @@ public class Usuario {
 	
 	@Column(name = "tipo", length = 1)
 	private Integer tipo;
-	
-	
 
 }
 
