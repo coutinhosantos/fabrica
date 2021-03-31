@@ -13,6 +13,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.modelmapper.ModelMapper;
+
+import com.fabrica.coutinho.vo.PacienteVO;
+import com.fabrica.coutinho.vo.UsuarioVO;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -50,12 +55,8 @@ public class Paciente {
 	
 	@Column(name = "numero_convenio", length = 200)
 	private String numero_convenio;
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_medico")
-	private List<Medico> medicos;
-	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_consulta")
-	private Consulta consulta;
+
+	public static Paciente create(PacienteVO pacienteVO) {
+		return new ModelMapper().map(pacienteVO, Paciente.class);
+	}
 }

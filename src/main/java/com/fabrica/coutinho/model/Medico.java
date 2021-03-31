@@ -52,13 +52,8 @@ public class Medico {
 	@Column(name = "crm", length = 200)
 	private String crm;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "medicos", cascade = CascadeType.REFRESH)
-	private List<Paciente> pacientes;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "medicos", cascade = CascadeType.REFRESH)
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_especialidade")
 	private List<Especialidade> especialidades;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_consulta")
-	private Consulta consulta;
 }

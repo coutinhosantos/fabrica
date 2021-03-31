@@ -18,7 +18,7 @@ spring:
     enabled: false
   datasource:
     url: jdbc:mysql://localhost:3306/consultorio?createDatabaseIfNotExist=true
-    username: coutinho
+    username: root
     password: j1751c
 
 #url: jdbc:mysql://localhost:3306/consultorio?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&sslMode=DISABLED&useSSL=false&serverTimezone=UTC

@@ -41,10 +41,6 @@ public class Especialidade {
 
 	@Column(name = "nome", length = 200)
 	private String nome;
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_medico")
-	private List<Medico> medicos;
 
 	public Integer getId() {
 		return id;
