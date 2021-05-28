@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fabrica.coutinho.repository.MedicoRepository;
+import com.fabrica.coutinho.repository.UsuarioRepository;
 import com.fabrica.coutinho.services.MedicoService;
 import com.fabrica.coutinho.vo.MedicoVO;
 
@@ -33,6 +35,13 @@ public class MedicoController {
 
 	private final MedicoService medicoService;
 	private final PagedResourcesAssembler<MedicoVO> assembler;
+
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+
+	@Autowired
+	private MedicoRepository medicoRepository;
+
 	
 	@Autowired
 	public MedicoController(MedicoService medicoService, PagedResourcesAssembler<MedicoVO> assembler) {
@@ -84,6 +93,13 @@ public class MedicoController {
 	public ResponseEntity<?> delete(@PathVariable("id") Integer id){
 		medicoService.delete(id);
 		return ResponseEntity.ok().build();
+	}
+	
+	@PostMapping("novo")
+	public String novo(MedicoVO medicoVO) {
+		create(medicoVO);
+		return "redirect:/inicio";
+
 	}
 }
 

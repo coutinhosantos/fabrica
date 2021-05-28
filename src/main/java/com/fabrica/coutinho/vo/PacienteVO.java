@@ -6,7 +6,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.hateoas.RepresentationModel;
 
 import com.fabrica.coutinho.model.Paciente;
-import com.fabrica.coutinho.model.Usuario;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 

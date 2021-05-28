@@ -1,22 +1,15 @@
 package com.fabrica.coutinho.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.modelmapper.ModelMapper;
 
 import com.fabrica.coutinho.vo.PacienteVO;
-import com.fabrica.coutinho.vo.UsuarioVO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -59,4 +52,54 @@ public class Paciente {
 	public static Paciente create(PacienteVO pacienteVO) {
 		return new ModelMapper().map(pacienteVO, Paciente.class);
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getConvenio() {
+		return convenio;
+	}
+
+	public void setConvenio(String convenio) {
+		this.convenio = convenio;
+	}
+
+	public String getNumero_convenio() {
+		return numero_convenio;
+	}
+
+	public void setNumero_convenio(String numero_convenio) {
+		this.numero_convenio = numero_convenio;
+	}
+	
+	
 }

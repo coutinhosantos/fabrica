@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fabrica.coutinho.services.PacienteService;
+import com.fabrica.coutinho.vo.MedicoVO;
 import com.fabrica.coutinho.vo.PacienteVO;
 
 @RestController
@@ -84,6 +85,13 @@ public class PacienteController {
 	public ResponseEntity<?> delete(@PathVariable("id") Integer id){
 		pacienteService.delete(id);
 		return ResponseEntity.ok().build();
+	}
+	
+	@PostMapping("novo")
+	public void novo(PacienteVO pacienteVO) {
+		create(pacienteVO);
+//		return "redirect:/inicio";
+
 	}
 }
 

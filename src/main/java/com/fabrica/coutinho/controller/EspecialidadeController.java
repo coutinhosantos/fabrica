@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fabrica.coutinho.services.EspecialidadeService;
 import com.fabrica.coutinho.vo.EspecialidadeVO;
+import com.fabrica.coutinho.vo.MedicoVO;
 
 @RestController
 @RequestMapping("/especialidade")
@@ -84,6 +85,13 @@ public class EspecialidadeController {
 	public ResponseEntity<?> delete(@PathVariable("id") Integer id){
 		especialidadeService.delete(id);
 		return ResponseEntity.ok().build();
+	}
+	
+	@PostMapping("novo")
+	public String novo(EspecialidadeVO especialidadeVO) {
+		create(especialidadeVO);
+		return "forward:/inicio";
+
 	}
 }
 
