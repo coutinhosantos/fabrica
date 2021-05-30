@@ -42,12 +42,18 @@ public class InicioController {
 		Optional<Usuario> usuario = usuarioRepository.findById(1);
 		
 		List<Receita> receitas = receitaRepository.findAll();
+		List<Medico> medicos = medicoRepository.findAll();
+		List<Paciente> pacientes = pacienteRepository.findAll();
+		List<Especialidade> especialidades = especialidadeRepository.findAll();
 		
+		model.addAttribute("especialidades", especialidades);
 		model.addAttribute("receitas", receitas);
+		model.addAttribute("medicos", medicos);
+		model.addAttribute("pacientes", pacientes);
 		
 		if(!usuario.isEmpty()) {
 			model.addAttribute("usuario", usuario.get().getNome());
-			return "receitas";
+			return "index";
 		}else {
 			return "inicio";
 		}
